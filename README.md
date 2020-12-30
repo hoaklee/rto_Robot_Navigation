@@ -4,13 +4,11 @@
 
 ### /get_map   
 request: map number (int64)  
-response: map (OccupancyGrid)
+response: map (OccupancyGridMap)
 
 ## Map Server
 To add a map to the map server simply append the map_server_params.yaml file in the config folder of the rto_map_server package.
 Keep in mind that the syntax has to match the syntax of 'map1' and the 'maps_nr' has to be updated.
-
-The input to the map server matches the commonly used structure from the ROS navigation stack.
 
 
 ## Simulation Worlds
