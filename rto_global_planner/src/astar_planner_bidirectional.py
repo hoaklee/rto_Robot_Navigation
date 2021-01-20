@@ -453,6 +453,7 @@ class main():
     def __init__(self):
 
         # Initialize Subscribers
+        rospy.wait_for_message('/global_costmap', OccupancyGrid)
         # self.sub_map = rospy.Subscriber('/move_base/global_costmap/costmap', OccupancyGrid, self.callback_costmap)
         self.sub_map = rospy.Subscriber('/global_costmap', OccupancyGrid, self.callback_costmap)
         self.sub_pos = rospy.Subscriber('/pose', PoseStamped, self.callback_pos)
@@ -498,7 +499,6 @@ class main():
         """
         callback of position
         """
-        rospy.wait_for_message('/global_costmap', OccupancyGrid)
         # self.pos_x = int((PoseWithCovarianceStamped.pose.pose.position.x - self.origin.x) / self.resolution)
         # self.pos_y = int((PoseWithCovarianceStamped.pose.pose.position.y - self.origin.y) / self.resolution)
         self.pos_x = int((PoseStamped.pose.position.x - self.origin.x) / self.resolution)
